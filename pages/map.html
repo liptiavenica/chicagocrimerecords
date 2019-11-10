@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<HTML>
+	<HEAD>
+	<meta charset="utf-8">
+        <title>CHICAGO CRIME RECORDS</title>
+		
+		<!-- LEAFLET --->
+		<link rel="stylesheet" type="text/css" href="../assets/leaflet/leaflet.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/MarkerCluster.css" />
+		<link rel="stylesheet" type="text/css" href="../assets/css/MarkerCluster.Default.css" />
+		
+		<script type="text/javascript" src="../assets/leaflet/leaflet.js"></script>
+		<script type="text/javascript" src="../assets/js/leaflet.markercluster.js"></script>
+		<script src="../assets/js/leaflet.markercluster.layersupport-src.js"></script>
+		
+		<!-- LEAFLET END --->
+		
+		<link rel="shortcut icon" href="../assets/marker/otherOffense.png" />
+
+        <script type="text/javascript" src="../assets/js/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="../assets/js/script-visdat.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Bitter|Abril+Fatface|Roboto' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/w3.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/w3-colors-metro.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/filter.css">
+	</HEAD>
+	<BODY>
+	<div class="map_wrap">
+		<div id="map" style="display:inline-block; width:70%; height:100%; z-index: 1;">
+			<div id="loader">
+				<img src="../assets/image/giphy.gif">
+			</div>
+		</div>
+		<div id="nav" style=" width: 30%; height: 100%">
+			<div class="sidemenu">
+				<header class="w3-panel w3-center w3-opacity" style="margin:0px">
+					<h1 class="w3-xlarge w3-text-yellow">CHICAGO CRIME MAPPER</h1>
+					<div class="w3-bar w3-border w3-margin">
+						<a href="../index.html" class="w3-bar-item w3-button w3-hover-yellow w3-small"><i class="fa fa-home"></i> HOME</a>
+						<span class="w3-bar-item w3-metro-orange w3-small">Crime Map</span>
+						<a href="dashboard.html" class="w3-bar-item w3-button w3-hover-yellow w3-small">Dashboard</a>
+					</div>
+				</header>
+				<div style="margin-top:0px">
+					<div class="w3-row-padding">
+					  <div class="w3-half">
+						<label class="w3-text-yellow w3-medium">Date From</label>
+						<input class="w3-input w3-border w3-small w3-padding-small" type="date" id="datepickerfrom"/>
+					  </div>
+					  <div class="w3-half">
+						<label class="w3-text-yellow w3-medium">Date To</label>
+						<input class="w3-input w3-border w3-small w3-padding-small" type="date" id="datepickerto"/>
+					  </div>
+					</div>
+					<div class="w3-row-padding">
+					  <div class="w3-half">
+						<label class="w3-text-yellow w3-medium">Time From</label>
+						<select name="timefrom" id="timefrom">
+							<option value="00">00</option>
+							<option value="01">01</option><option value="02">02</option><option value="03">03</option>
+							<option value="04">04</option><option value="05">05</option><option value="06">06</option>
+							<option value="07">07</option><option value="08">08</option><option value="09">09</option>
+							<option value="10">10</option><option value="11">11</option><option value="12">12</option>
+							<option value="13">13</option><option value="14">14</option><option value="15">15</option>
+							<option value="16">16</option><option value="17">17</option><option value="18">18</option>
+							<option value="19">19</option><option value="20">20</option><option value="21">21</option>
+							<option value="22">22</option><option value="23">23</option><option value="24">24</option>
+						</select>
+					  </div>
+					  <div class="w3-half">
+						<label class="w3-text-yellow w3-medium">Time To</label>
+						<select name="timeto" id="timeto" name="timeto">
+							<option value="00">00</option>
+							<option value="01">01</option><option value="02">02</option><option value="03">03</option>
+							<option value="04">04</option><option value="05">05</option><option value="06">06</option>
+							<option value="07">07</option><option value="08">08</option><option value="09">09</option>
+							<option value="10">10</option><option value="11">11</option><option value="12">12</option>
+							<option value="13">13</option><option value="14">14</option><option value="15">15</option>
+							<option value="16">16</option><option value="17">17</option><option value="18">18</option>
+							<option value="19">19</option><option value="20">20</option><option value="21">21</option>
+							<option value="22">22</option><option value="23">23</option><option value="24">24</option>
+						</select>
+					  </div>
+					  <div class="w3-row-padding">
+						<button onclick="filterDateTime()" id="filterbutton" class="w3-bar-item w3-button w3-hover-yellow">Filter</button>
+					  </div>
+					</div>
+					
+				</div>
+				<div class="crime">
+					<div>
+						<label class="w3-text-yellow w3-medium" style="font-size:20px !important">Crime Categories</label>
+					</div>
+					<div>
+						<button onclick="clearAll()" id="clearall" class="w3-bar-item w3-button w3-hover-yellow">Clear All</button>
+					</div>
+					<div id="filter-list"></div>
+					<br>
+				</div>
+			</div>
+	</div>
+	</BODY>
+</HTML>

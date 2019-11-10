@@ -1,0 +1,99 @@
+
+.map_wrap{
+    width: 100%;
+}
+
+label img{
+	margin-bottom:-7px;
+}
+
+#filter-list label{
+	color: white !important;
+}
+
+label {
+	color:#131313;
+	padding:-20px;
+	height:10px;
+}
+
+.header{
+	width:200px;
+	border-bottom: 2px solid yellow;
+}
+
+#map{
+	height: 650px !important;
+}
+
+#nav{
+	background-color: #2B2B2B;
+	background-image:url("../image/background.png");
+	color:white;
+	float:right;
+	border-left:4px solid yellow;
+	padding-left:5px;
+	height: 650px !important;
+	overflow-y: auto;
+}
+
+.crime{
+	width:240px;
+	margin-top:20px;
+}
+
+
+label{
+	display:block;
+	margin-top:8px;
+	margin-bottom:8px;
+	color:black;
+}
+
+
+
+.sidemenu
+{
+	padding-bottom: 10px;
+}
+
+#filterbutton{
+	margin-top: 15px;
+	width: 100%;
+	background-color: gray;
+}
+
+#clearall{
+	margin: 15px 0 10px 0;
+	background-color: gray;
+}
+
+
+/* Leaflet Layers Control */
+
+.leaflet-control-layers {
+  border-radius: none;
+  box-shadow: none;
+  width: max-content;
+}
+
+.leaflet-control-layers-expanded {
+  padding: 0px;
+  background-color: transparent;
+  border: none !important;
+}
+
+#popuptext td{
+	padding-top:15px !important;
+}
+
+#loader {
+    text-align: center;
+    display: none;
+}
+
+#loader img{
+	margin-top:150px;
+	width:300px;
+	height:300px;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CHICAGO CRIME RECORDS </title>
+	<script src="../assets/js/Chart.bundle.js"></script>
+    <script src="../assets/js/utils.js"></script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/w3.css">
+	<link rel="stylesheet" href="../assets/css/font-awesome.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/w3-colors-metro.css">
+</head>
+<body>
+	<header class="w3-panel w3-metro-darken w3-center" style="height:10%; margin: 0px; background-image:url('../assets/image/background.png'); border-bottom:4px solid yellow;">
+		<h1 class="w3-xlarge w3-text-yellow">CHICAGO CRIME RECORDS</h1>
+		<div class="w3-padding-16">
+			<div class="w3-bar w3-border w3-large">
+				<a href="../index.html" class="w3-bar-item w3-button w3-hover-yellow"><i class="fa fa-home"></i> HOME</span>
+				<a href="map.html" class="w3-bar-item w3-button w3-hover-yellow">Crime Map</a>
+				<span class="w3-bar-item  w3-metro-orange">Dashboard</span>
+			</div>
+		</div>
+	</header>
+	<div class="w3-container" width="100%">
+		<div class="w3-row-padding">
+		  <div class="w3-half">
+			<canvas id="canvas1" width="400" height="200"></canvas>
+		  </div>
+		  <div class="w3-half">
+			<canvas id="canvas2" width="400" height="200"></canvas>
+		  </div>
+		</div>
+    </div>
+    <script>
+		var dataRich = [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ];
+		var dataMiddle = [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ];
+		var dataPoor = [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ];
+					
+        var myChart = {
+            type: 'line',
+			data: {
+				datasets : [
+					{ /* objek dataset1 */
+						label: "Crime1",
+						//backgroundColor: window.chartColors.grey,
+						borderColor: window.chartColors.red,
+						data: dataRich,
+					},
+					{ /* objek dataset2 */
+						label: "Crime2",
+						//backgroundColor: window.chartColors.blue,
+						borderColor: window.chartColors.green,
+						data: dataMiddle,
+					},
+					{ /* objek dataset3 */
+						label: "Crime3",
+						//backgroundColor: window.chartColors.grey,
+						borderColor: window.chartColors.orange,
+						data: dataPoor,
+					}],
+				labels: ["2010","2011", "2012", "2013", "2014", "2015", "2016"],
+			},
+			options: {
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Year'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Crime Occurence'
+                        }
+                    }]
+                },
+				title:{
+                    display:true,
+                    text:'Chicago Crime Data'
+                },
+				responsive: true,
+			},
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById("canvas1").getContext("2d");
+			var ctx2 = document.getElementById("canvas2").getContext("2d");
+            new Chart(ctx, myChart);
+			new Chart(ctx2, myChart);
+        };
+    </script>
+    </script>
+</body>
+</html>
