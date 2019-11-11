@@ -46,17 +46,17 @@
 				<div style="margin-top:0px;">
 					<div class="w3-row-padding">
 					  <div class="w3-half">
-						<label class="w3-text-yellow w3-medium">Date From</label>
+						<label class="w3-text-yellow w3-medium filterlabel">Date From</label>
 						<input class="w3-input w3-border w3-small w3-padding-small" type="date" id="datepickerfrom"/>
 					  </div>
 					  <div class="w3-half">
-						<label class="w3-text-yellow w3-medium">Date To</label>
+						<label class="w3-text-yellow w3-medium filterlabel">Date To</label>
 						<input class="w3-input w3-border w3-small w3-padding-small" type="date" id="datepickerto"/>
 					  </div>
 					</div>
 					<div class="w3-row-padding">
 					  <div class="w3-half">
-						<label class="w3-text-yellow w3-medium">Time From</label>
+						<label class="w3-text-yellow w3-medium filterlabel">Time From</label>
 						<select name="timefrom" id="timefrom">
 							<option value="00">00</option>
 							<option value="01">01</option><option value="02">02</option><option value="03">03</option>
@@ -70,7 +70,7 @@
 						</select>
 					  </div>
 					  <div class="w3-half">
-						<label class="w3-text-yellow w3-medium">Time To</label>
+						<label class="w3-text-yellow w3-medium filterlabel">Time To</label>
 						<select name="timeto" id="timeto" name="timeto">
 							<option value="00">00</option>
 							<option value="01">01</option><option value="02">02</option><option value="03">03</option>
@@ -93,33 +93,33 @@
 				
 				<div class="crime" style="width:95%;float:right;">
 					<div style="width:50%; float:left;">
-						<label class="w3-text-yellow w3-medium" style="font-size:18px !important; margin-bottom:20px;">Arested Categories</label>
+						<label class="w3-text-yellow w3-medium filterlabel">Arested Categories</label>
 						<div id="filterStatus">
-						<select name="status" id="status" onchange="filterStatus(this)">
-							<option value="0">All</option>
-							<option value="1">Not Arested</option>
-							<option value="2">Arested</option>
-						</select>
+							<select name="status" id="status" onchange="filterStatus(this)">
+								<option value="0">All</option>
+								<option value="1">Not Arested</option>
+								<option value="2">Arested</option>
+							</select>
 						</div>
 					</div>
 					<div style="width:50%; float:right;">
-						<label class="w3-text-yellow w3-medium" style="font-size:18px !important; margin-bottom:20px;">Domestic Categories </label>
+						<label class="w3-text-yellow w3-medium filterlabel">Domestic Categories </label>
 						<div id="filterStatus">
-						<select name="domestic" id="domestic" onchange="filterStatus(this)">
-							<option value="0">All</option>
-							<option value="1">Non Domestic</option>
-							<option value="2">Domestic</option>
-						</select>
+							<select name="domestic" id="domestic" onchange="filterStatus(this)">
+								<option value="0">All</option>
+								<option value="1">Non Domestic</option>
+								<option value="2">Domestic</option>
+							</select>
 						</div>
 					</div>
 					<div>
-						<label class="w3-text-yellow w3-medium" style="font-size:20px !important;">Crime Categories</label>
+						<label class="w3-text-yellow w3-medium filterlabel">Crime Categories</label>
 					</div>
-					<div>
-						<button onclick="clearAll()" id="clearall" class="w3-bar-item w3-button w3-hover-yellow" style="margin-top:30px;">Clear All</button>
-					</div>
-					<div id="filter-list" style="background-color:red;"></div>
+					<div id="filter-list"></div>
 					<br>
+					<div>
+						<button onclick="clearAll()" id="clearall" class="w3-bar-item w3-button w3-hover-yellow" style="margin-top:30px;">Uncheck All</button>
+					</div>
 				</div>
 			</div>
 	</div>

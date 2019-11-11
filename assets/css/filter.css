@@ -9,6 +9,7 @@ label img{
 
 #filter-list label{
 	color: white !important;
+	margin-top: 20px;
 }
 
 label {
@@ -96,4 +97,13 @@ label{
 	margin-top:150px;
 	width:300px;
 	height:300px;
+}
+
+#status,#domestic{
+	margin-bottom: 20px;
+}
+
+.filterlabel{
+	font-size:16px !important; 
+	margin-bottom:15px;
 }
