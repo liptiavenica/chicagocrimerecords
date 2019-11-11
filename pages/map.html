@@ -43,7 +43,7 @@
 						<a href="dashboard.html" class="w3-bar-item w3-button w3-hover-yellow w3-small">Dashboard</a>
 					</div>
 				</header>
-				<div style="margin-top:0px">
+				<div style="margin-top:0px;">
 					<div class="w3-row-padding">
 					  <div class="w3-half">
 						<label class="w3-text-yellow w3-medium">Date From</label>
@@ -86,17 +86,39 @@
 					  <div class="w3-row-padding">
 						<button onclick="filterDateTime()" id="filterbutton" class="w3-bar-item w3-button w3-hover-yellow">Filter</button>
 					  </div>
+					  
+						
 					</div>
-					
 				</div>
-				<div class="crime">
-					<div>
-						<label class="w3-text-yellow w3-medium" style="font-size:20px !important">Crime Categories</label>
+				
+				<div class="crime" style="width:95%;float:right;">
+					<div style="width:50%; float:left;">
+						<label class="w3-text-yellow w3-medium" style="font-size:18px !important; margin-bottom:20px;">Arested Categories</label>
+						<div id="filterStatus">
+						<select name="status" id="status" onchange="filterStatus(this)">
+							<option value="0">All</option>
+							<option value="1">Not Arested</option>
+							<option value="2">Arested</option>
+						</select>
+						</div>
+					</div>
+					<div style="width:50%; float:right;">
+						<label class="w3-text-yellow w3-medium" style="font-size:18px !important; margin-bottom:20px;">Domestic Categories </label>
+						<div id="filterStatus">
+						<select name="domestic" id="domestic" onchange="filterStatus(this)">
+							<option value="0">All</option>
+							<option value="1">Non Domestic</option>
+							<option value="2">Domestic</option>
+						</select>
+						</div>
 					</div>
 					<div>
-						<button onclick="clearAll()" id="clearall" class="w3-bar-item w3-button w3-hover-yellow">Clear All</button>
+						<label class="w3-text-yellow w3-medium" style="font-size:20px !important;">Crime Categories</label>
 					</div>
-					<div id="filter-list"></div>
+					<div>
+						<button onclick="clearAll()" id="clearall" class="w3-bar-item w3-button w3-hover-yellow" style="margin-top:30px;">Clear All</button>
+					</div>
+					<div id="filter-list" style="background-color:red;"></div>
 					<br>
 				</div>
 			</div>

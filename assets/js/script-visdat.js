@@ -59,7 +59,7 @@ var markerGroups = {
     "liquorlawviolation": []
 };
 
-var data, map, overlays, markerClusters;
+var data, primary_data, map, overlays, markerClusters;
 
 function print() {
 	overlays = [];
@@ -118,6 +118,8 @@ function print() {
 	
 	//hide loader when the map is complete
 	$("#loader").hide();
+	
+	data= primary_data;
 }
 
 
@@ -145,11 +147,64 @@ function filterDateTime() {
 			 url: api,
 			 method: 'GET',
 			 success: function(response) {
+				primary_data = response;
 				data = response;
 				print();
 			}
 		});
 	});
+}
+
+//filter status
+function filterStatus() {
+    var request;
+	var arr;
+	var dom;
+	var input = document.getElementById('status').value;
+	var input2 = document.getElementById('domestic').value;
+
+	if(input == "1"){
+		arr = true;
+	}else{
+		arr = false;
+	}
+	
+	if(input2 == "1"){
+		dom = true;
+	}else{
+		dom = false;
+	}
+
+	var filteredData = []
+	var filteredData2 = []
+	//filter data status
+    for (k = 0; k < data.length; k++) {
+		var arrest = data[k].arrest;
+		if(input==0){
+			filteredData.push(data[k]);
+		}else if(arrest==arr){
+			filteredData.push(data[k]);
+		}
+	}
+	//filter data domestic
+	 for (t = 0; t < filteredData.length; t++) {
+		var domestic = filteredData[t].domestic;
+		if(input2==0){
+			filteredData2.push(filteredData[t]);
+		}else if(domestic==dom){
+			filteredData2.push(filteredData[t]);
+		}
+	}
+	
+	
+	data = filteredData2;
+	if(map != undefined)
+	{
+		map.remove(); 
+	}	
+	print();
+	
+	
 }
 
 
