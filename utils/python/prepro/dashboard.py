@@ -29,7 +29,7 @@ def count(dict_list):
         res += dict_list[key]
     return res
 
-def process(data_path, top_n = 0):
+def process(data_path, top_n = 0, last = True):
     with open(data_path) as json_file:
         data = json.load(json_file)
         crimes = []
@@ -46,9 +46,30 @@ def process(data_path, top_n = 0):
                     dat['crimes'][crim] = 0
             prepro_keys(dat['crimes'])
             dat['crimes'] = dict(sort(dat['crimes']))
+    if top_n > 0:
+        res = []
+        if last :
+            dat = data.pop(-1)
+            keys = list(dat['crimes'].keys())[:top_n]
+        else:
+            dat = data.pop()
+            keys = list(dat['crimes'].keys())[:top_n]
+        for dat in data:
+            x = {   
+                    'year'  : dat['year'],
+                    'crimes' : {}
+                }
+            for key in keys:
+                x['crimes'][key] = dat['crimes'][key]
+            res.append(x)
+        del data
+        data = res
     return data
 
 if __name__ == "__main__":
     data_path = 'crimes_all_per-year.json'
     data = process(data_path)
     print(data)
+    filename = 'crimes_%s_%sv2.json'%('all', 'per-year')
+    with open(filename, 'w') as d:
+        json.dump(data, d)
