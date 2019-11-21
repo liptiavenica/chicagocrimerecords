@@ -14,8 +14,8 @@
 <body>
 	<header class="w3-panel w3-metro-darken w3-center" style="height:10%; margin: 0px; background-image:url('../assets/image/background.png'); border-bottom:4px solid yellow;">
 		<h1 class="w3-xlarge w3-text-yellow">CHICAGO CRIME RECORDS</h1>
-		<div class="w3-padding-16">
-			<div class="w3-bar w3-border w3-large">
+		<div class="w3-padding">
+			<div class="w3-bar w3-border w3-medium">
 				<a href="../index.html" class="w3-bar-item w3-button w3-hover-yellow"><i class="fa fa-home"></i> HOME</span>
 				<a href="map.html" class="w3-bar-item w3-button w3-hover-yellow">Crime Map</a>
 				<span class="w3-bar-item  w3-metro-orange">Dashboard</span>
@@ -23,14 +23,68 @@
 		</div>
 	</header>
 	<div class="w3-container" width="100%">
-		<div class="w3-row-padding">
-		  <div class="w3-half">
-			<canvas id="canvas1" width="400" height="200"></canvas>
-		  </div>
-		  <div class="w3-half">
-			<canvas id="canvas2" width="400" height="200"></canvas>
-		  </div>
+		<!--GROWTH CHART-->
+		<div class = "w3-row-padding w3-padding">
+			<div class="w3-third">
+				<label class="w3-text-yellow w3-medium filterlabel">From</label>
+				<select id="yearstart">
+							<option value="00">2001</option>
+							<option value="01">2002</option>
+							<option value="04">2003</option>
+							<option value="07">2004</option>
+							<option value="10">2005</option>
+							<option value="13">2006</option>
+							<option value="16">2007</option>
+							<option value="19">2008</option>
+							<option value="22">2009</option>
+							<option value="22">2010</option>
+							<option value="22">2011</option>
+							<option value="22">2012</option>
+							<option value="22">2013</option>
+							<option value="22">2014</option>
+							<option value="22">2015</option>
+							<option value="22">2016</option>
+							<option value="22">2017</option>
+							<option value="22">2018</option>
+				</select>
+			</div>
+			<div class="w3-third">
+				<label class="w3-text-yellow w3-medium filterlabel">To</label>
+				<select id="yearstart">
+							<option value="00">2001</option>
+							<option value="01">2002</option>
+							<option value="04">2003</option>
+							<option value="07">2004</option>
+							<option value="10">2005</option>
+							<option value="13">2006</option>
+							<option value="16">2007</option>
+							<option value="19">2008</option>
+							<option value="22">2009</option>
+							<option value="22">2010</option>
+							<option value="22">2011</option>
+							<option value="22">2012</option>
+							<option value="22">2013</option>
+							<option value="22">2014</option>
+							<option value="22">2015</option>
+							<option value="22">2016</option>
+							<option value="22">2017</option>
+							<option value="22">2018</option>
+							<option value="22">2019</option>
+				</select>
+			</div>
+			<div class="w3-third">
+							
+			</div>
 		</div>
+		<div>
+			<canvas id="canvas1" height="110px"></canvas>
+		</div>
+		  <!--HEATMAP-->
+		  <div>
+			<h4 class="w3-center">Heatmap (on Progress)</h4>
+			<img src="../assets/image/heatmap.png" style="width:75%">
+			<img src="../assets/image/index.png" style="width:23%">
+		  </div>
     </div>
     <script>
 		var dataRich = [
@@ -39,6 +93,9 @@
                         randomScalingFactor(),
                         randomScalingFactor(),
                         randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+						randomScalingFactor(),
                         randomScalingFactor(),
                         randomScalingFactor()
                     ];
@@ -49,6 +106,9 @@
                         randomScalingFactor(),
                         randomScalingFactor(),
                         randomScalingFactor(),
+                        randomScalingFactor(),
+						randomScalingFactor(),
+                        randomScalingFactor(),
                         randomScalingFactor()
                     ];
 		var dataPoor = [
@@ -58,6 +118,9 @@
                         randomScalingFactor(),
                         randomScalingFactor(),
                         randomScalingFactor(),
+                        randomScalingFactor(),
+						randomScalingFactor(),
+                        randomScalingFactor(),
                         randomScalingFactor()
                     ];
 					
@@ -66,24 +129,24 @@
 			data: {
 				datasets : [
 					{ /* objek dataset1 */
-						label: "Crime1",
+						label: "Burglary",
 						//backgroundColor: window.chartColors.grey,
 						borderColor: window.chartColors.red,
 						data: dataRich,
 					},
 					{ /* objek dataset2 */
-						label: "Crime2",
+						label: "Thievery",
 						//backgroundColor: window.chartColors.blue,
 						borderColor: window.chartColors.green,
 						data: dataMiddle,
 					},
 					{ /* objek dataset3 */
-						label: "Crime3",
+						label: "Murder",
 						//backgroundColor: window.chartColors.grey,
 						borderColor: window.chartColors.orange,
 						data: dataPoor,
 					}],
-				labels: ["2010","2011", "2012", "2013", "2014", "2015", "2016"],
+				labels: ["2010","2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
 			},
 			options: {
                 scales: {
@@ -104,7 +167,7 @@
                 },
 				title:{
                     display:true,
-                    text:'Chicago Crime Data'
+                    text:'Chicago Crime Yearly Growth'
                 },
 				responsive: true,
 			},
@@ -112,11 +175,10 @@
 
         window.onload = function() {
             var ctx = document.getElementById("canvas1").getContext("2d");
-			var ctx2 = document.getElementById("canvas2").getContext("2d");
+			//var ctx2 = document.getElementById("canvas2").getContext("2d");
             new Chart(ctx, myChart);
-			new Chart(ctx2, myChart);
+			//new Chart(ctx2, myChart);
         };
-    </script>
     </script>
 </body>
 </html>

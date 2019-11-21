@@ -140,6 +140,7 @@ function filterDateTime() {
 	
 	var api = 'https://data.cityofchicago.org/resource/ijzp-q8t2.json?$where=date%20between%20%27'+datefrom+timefrom+'%27%20and%20%27'+dateto+timeto+'%27&$limit=20000&$offset=0';
 	console.log(api);
+	console.log(api);
 	
 	//karena sebelumnya map sudah diload, untuk meload ulang harus remove dulu yg sebelumnya
 	if(map != undefined)
