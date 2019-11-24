@@ -8,7 +8,7 @@ var customIcons = {
 	'crimsexualassault': 'crimsexualassault.png',
 	'criminaltrespass': 'criminaltrespass.png',
 	'deceptivepractice': 'deceptivepractice.png',
-	'interferencewithpublicofficer': 'interferencewithpublicofficer',
+	'interferencewithpublicofficer': 'interferencewithpublicofficer.png',
 	'intimidation': 'intimidation.png',
 	'motorvehicletheft': 'motorvehicletheft.png',
 	'narcotics': 'narcotics.png',
@@ -29,7 +29,9 @@ var customIcons = {
 	'obscenity' : 'obscenity.png',
 	'non-criminal' : 'non-criminal.png',
 	'gambling' : 'gambling.png',
-	'liquorlawviolation' : 'liquorlawviolation.png'
+	'liquorlawviolation' : 'liquorlawviolation.png',
+	'ritualism' : 'ritualism.png',
+	'domesticviolence': 'domesticviolence.png'
 };
 
 var markerGroups = {
@@ -61,7 +63,9 @@ var markerGroups = {
 	"obscenity": [],
 	"non-criminal": [],
 	"gambling": [],
-    "liquorlawviolation": []
+    "liquorlawviolation": [],
+    "ritualism": [],
+    "domesticviolence": []
 };
 
 var data, primary_data, map, overlays, markerClusters;
