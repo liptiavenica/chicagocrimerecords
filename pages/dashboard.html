@@ -4,6 +4,8 @@
 	<title> CHICAGO CRIME RECORDS </title>
 	<script src="../assets/js/Chart.bundle.js"></script>
     <script src="../assets/js/utils.js"></script>
+	<script src="../assets/data/yearly_crimes_top_3.json"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/w3.css">
@@ -24,161 +26,16 @@
 	</header>
 	<div class="w3-container" width="100%">
 		<!--GROWTH CHART-->
-		<div class = "w3-row-padding w3-padding">
-			<div class="w3-third">
-				<label class="w3-text-yellow w3-medium filterlabel">From</label>
-				<select id="yearstart">
-							<option value="00">2001</option>
-							<option value="01">2002</option>
-							<option value="04">2003</option>
-							<option value="07">2004</option>
-							<option value="10">2005</option>
-							<option value="13">2006</option>
-							<option value="16">2007</option>
-							<option value="19">2008</option>
-							<option value="22">2009</option>
-							<option value="22">2010</option>
-							<option value="22">2011</option>
-							<option value="22">2012</option>
-							<option value="22">2013</option>
-							<option value="22">2014</option>
-							<option value="22">2015</option>
-							<option value="22">2016</option>
-							<option value="22">2017</option>
-							<option value="22">2018</option>
-				</select>
-			</div>
-			<div class="w3-third">
-				<label class="w3-text-yellow w3-medium filterlabel">To</label>
-				<select id="yearstart">
-							<option value="00">2001</option>
-							<option value="01">2002</option>
-							<option value="04">2003</option>
-							<option value="07">2004</option>
-							<option value="10">2005</option>
-							<option value="13">2006</option>
-							<option value="16">2007</option>
-							<option value="19">2008</option>
-							<option value="22">2009</option>
-							<option value="22">2010</option>
-							<option value="22">2011</option>
-							<option value="22">2012</option>
-							<option value="22">2013</option>
-							<option value="22">2014</option>
-							<option value="22">2015</option>
-							<option value="22">2016</option>
-							<option value="22">2017</option>
-							<option value="22">2018</option>
-							<option value="22">2019</option>
-				</select>
-			</div>
-			<div class="w3-third">
-							
-			</div>
-		</div>
 		<div>
-			<canvas id="canvas1" height="110px"></canvas>
+			<canvas id="canvas1" height="115px"></canvas>
 		</div>
-		  <!--HEATMAP-->
-		  <div>
+		<!--HEATMAP-->
+		<div>
 			<h4 class="w3-center">Heatmap (on Progress)</h4>
 			<img src="../assets/image/heatmap.png" style="width:75%">
 			<img src="../assets/image/index.png" style="width:23%">
-		  </div>
+		</div>
     </div>
-    <script>
-		var dataRich = [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-						randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
-                    ];
-		var dataMiddle = [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-						randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
-                    ];
-		var dataPoor = [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-						randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
-                    ];
-					
-        var myChart = {
-            type: 'line',
-			data: {
-				datasets : [
-					{ /* objek dataset1 */
-						label: "Burglary",
-						//backgroundColor: window.chartColors.grey,
-						borderColor: window.chartColors.red,
-						data: dataRich,
-					},
-					{ /* objek dataset2 */
-						label: "Thievery",
-						//backgroundColor: window.chartColors.blue,
-						borderColor: window.chartColors.green,
-						data: dataMiddle,
-					},
-					{ /* objek dataset3 */
-						label: "Murder",
-						//backgroundColor: window.chartColors.grey,
-						borderColor: window.chartColors.orange,
-						data: dataPoor,
-					}],
-				labels: ["2010","2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
-			},
-			options: {
-                scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Year'
-                        }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Crime Occurence'
-                        }
-                    }]
-                },
-				title:{
-                    display:true,
-                    text:'Chicago Crime Yearly Growth'
-                },
-				responsive: true,
-			},
-        };
-
-        window.onload = function() {
-            var ctx = document.getElementById("canvas1").getContext("2d");
-			//var ctx2 = document.getElementById("canvas2").getContext("2d");
-            new Chart(ctx, myChart);
-			//new Chart(ctx2, myChart);
-        };
-    </script>
+    <script src="../assets/js/crimeGrowth.js"></script>
 </body>
 </html>
