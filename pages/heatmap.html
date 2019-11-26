@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet.heat demo</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <style>
+        #map { width: 100%; height: 600px; }
+        body { font: 16px/1.4 "Helvetica Neue", Arial, sans-serif; }
+        .ghbtns { position: relative; top: 16px; margin-left: 5px; }
+        a { color: #0077ff; }
+    </style>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<script src="../assets/js/crime_index.js"></script>
+
+
+ <div class="row">
+  <div class="column">
+    <div id="map"></div>
+  </div>
+  <div class="column" >
+    <div id="crime_slider" style="text-align:left; width:100%; padding:0; overflow: scroll; height: 600px;""></div>
+</div>
+  </div>
+</div>   
+    
+<script src="../assets/leaflet/simpleheat.js"></script>
+<script src="../assets/leaflet/HeatLayer.js"></script>
+<script src="../assets/data/districts_geo_info.json"></script>
+<script src="../assets/data/crimes_statistic.json"></script>
+<script src="../assets/js/crime_heatmap.js"></script>
+
+<script>
+        var wrapper = document.getElementById("crime_slider");
+
+        var crimeHTML = '';
+
+        for (var i = 0; i < crimes_type.length; i++) {
+            var crime_statistic = crimes_statistic[crimesType(i)]
+            var crime_max = crime_statistic['max']
+            var crime_min = crime_statistic['min']
+
+             crimeHTML += '<p>' +
+              '<label for="range_weight">'+crimesType(i)+': </label>' +
+              '<input type="range" id="'+crimesType(i)+'"  class="slider" min="'+crime_min+'" max="'+crime_max+'" value="1" onchange="showValue(this)">' +
+              '<span  class="slider_label"></span>' +
+              '<p>';
+        }
+
+        wrapper.innerHTML = crimeHTML
+        function get_nextsibling(n)
+        {
+            x=n.nextSibling;
+            while (x.nodeType!=1)
+            {
+                x=x.nextSibling;
+            }
+            return x;
+        }
+
+        function showValue(self)
+        {
+            get_nextsibling(self).innerHTML=self.value;
+            var crimeIndex = []
+            for (var i = 0; i < crimes_type.length; i++) {
+                var slider = document.getElementById(crimesType(i)).value;
+                crimeIndex.push(slider)
+
+            }
+            drawMap(crimeIdx(crimeWeight = crimeIndex))
+        }
+
+    </script>
+
+</body>
+</html>
