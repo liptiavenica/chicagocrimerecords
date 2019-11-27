@@ -54,7 +54,7 @@ function drawMap (crimeIndex = crimeIdx(crimeWeight = [1,1,1,1,1,1,1,1,1,1,1,1,1
         radius: getRadius(),
         blur: 20, 
         maxZoom: 16,
-        minOpacity: 0.7
+        minOpacity: 0.5
     }).addTo(map);
 
     map.on('zoomend', function(ev) {
@@ -63,7 +63,7 @@ function drawMap (crimeIndex = crimeIdx(crimeWeight = [1,1,1,1,1,1,1,1,1,1,1,1,1
         heat.setOptions({
             radius: getRadius(),
             blur: 20,
-            minOpacity: 0.7
+            minOpacity: 0.5
         });
         heat.redraw();
     });
