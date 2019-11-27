@@ -13,31 +13,31 @@ var currentZoom = map.getZoom();
 function getRadius(){
             var radius;
             if (currentZoom === 10){
-                radius=20
+                radius=25
             }
             else if (currentZoom === 11) {
-                radius = 22;
+                radius = 27;
             }
             else if (currentZoom === 12) {
-                radius = 24;
+                radius = 29;
             }
             else if (currentZoom === 13) {
-                radius = 26;
+                radius = 31;
             }
             else if (currentZoom === 14) {
-                radius = 28;
+                radius = 33;
             }
             else if (currentZoom === 15) {
-                radius = 30;
+                radius = 35;
             }
             else if (currentZoom === 16) {
-                radius = 32;
+                radius = 37;
             }
             else if (currentZoom === 17) {
-                radius = 34;
+                radius = 39;
             }
             else if (currentZoom === 18) {
-                radius = 36;
+                radius = 41;
             }
             return radius;
 }
@@ -51,7 +51,7 @@ function drawMap (crimeIndex = crimeIdx(crimeWeight = [1,1,1,1,1,1,1,1,1,1,1,1,1
     var dataCrime = data.map(function (p,i) { return [p["Latitude"], p["Longitude"],crimeIndex[i]] });
 
     heat = L.heatLayer(dataCrime, {
-        radius: 25,
+        radius: getRadius(),
         blur: 20, 
         maxZoom: 16,
         minOpacity: 0.7
