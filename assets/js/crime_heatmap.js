@@ -51,7 +51,7 @@ function drawMap (crimeIndex = crimeIdx(crimeWeight = [1,1,1,1,1,1,1,1,1,1,1,1,1
     var dataCrime = data.map(function (p,i) { return [p["Latitude"], p["Longitude"],crimeIndex[i]] });
 
     heat = L.heatLayer(dataCrime, {
-        radius: getRadius(),
+        radius: 25,
         blur: 20, 
         maxZoom: 16,
         minOpacity: 0.7

@@ -24,8 +24,15 @@ function crimeIdx (crimeWeight = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
         for (district in crime_statistic['crimes_per_district']){
             console.log(district)
             var crime_district = crime_statistic['crimes_per_district'][district]
-            crimeIdx[district-1] += crimeWeight[district-1] * (crime_district - crime_min) / (crime_max-crime_min)
+            crimeIdx[district-1] += parseInt (crimeWeight[district-1] * (crime_district - crime_min) / (crime_max-crime_min)) || 0
         }
     }
     return crimeIdx 
+}
+
+function normalize(min, max) {
+    var delta = max - min;
+    return function (val) {
+        return (val - min) / delta;
+    };
 }

@@ -65,7 +65,7 @@
 
              crimeHTML += '<p>' +
               '<label for="range_weight">'+crimesType(i)+': </label>' +
-              '<input type="range" id="'+crimesType(i)+'"  class="slider" min="'+crime_min+'" max="'+crime_max+'" value="1" onchange="showValue(this)">' +
+              '<input type="range" id="'+crimesType(i)+'"  class="slider" min="1" max="10" value="1" onchange="showValue(this)">' +
               '<span  class="slider_label"></span>' +
               '<p>';
         }
@@ -90,7 +90,19 @@
                 crimeIndex.push(slider)
 
             }
-            drawMap(crimeIdx(crimeWeight = crimeIndex))
+
+            var crimeIntensity = []
+            var crimeIdx1 = crimeIdx(crimeWeight = crimeIndex)
+            var crimeIdx2 = crimeIdx(crimeWeight = crimeIndex).map(normalize(crimeIdx1.reduce((max, value) => {return Math.min(max, value)}), crimeIdx1.reduce((max, value) => {return Math.max(max, value)})))
+
+            for (var i = 0; i < crimeIndex.length; i++) {
+              var crime_statistic = crimes_statistic[crimesType(i)]
+              var crime_max = crime_statistic['max']
+              crimeIntensity.push(crimeIdx2[i] * crime_max )
+            } 
+
+            
+            drawMap(crimeIdx(crimeWeight = crimeIntensity))
         }
 
     </script>
