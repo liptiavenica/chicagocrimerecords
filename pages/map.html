@@ -19,14 +19,14 @@
 
         <script type="text/javascript" src="../assets/js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="../assets/js/script-visdat.js"></script>
-		<link href='http://fonts.googleapis.com/css?family=Bitter|Abril+Fatface|Roboto' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Bitter|Abril+Fatface|Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="../assets/css/w3.css">
 		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 		<link rel="stylesheet" type="text/css" href="../assets/css/w3-colors-metro.css">
 		<link rel="stylesheet" type="text/css" href="../assets/css/filter.css">
 	</HEAD>
-	<BODY>
+	<BODY onload="filterDateTime()">
 	<div class="map_wrap">
 		<div id="map" style="display:inline-block; width:70%; height:100%; z-index: 1;">
 			<div id="loader">
@@ -38,7 +38,7 @@
 				<header class="w3-panel w3-center w3-opacity" style="margin:0px">
 					<h1 class="w3-xlarge w3-text-yellow">CHICAGO CRIME MAPPER</h1>
 					<div class="w3-bar w3-border w3-margin">
-						<a href="../index.html" class="w3-bar-item w3-button w3-hover-yellow w3-small"><i class="fa fa-home"></i> HOME</a>
+						<a href="../index.php" class="w3-bar-item w3-button w3-hover-yellow w3-small"><i class="fa fa-home"></i> HOME</a>
 						<span class="w3-bar-item w3-metro-orange w3-small">Crime Map</span>
 						<a href="dashboard.html" class="w3-bar-item w3-button w3-hover-yellow w3-small">Dashboard</a>
 					</div>
@@ -47,11 +47,11 @@
 					<div class="w3-row-padding">
 					  <div class="w3-half">
 						<label class="w3-text-yellow w3-medium filterlabel">From</label>
-						<input class="w3-input w3-border w3-small w3-padding-small" type="date" id="datepickerfrom"/>
+						<input class="w3-input w3-border w3-small w3-padding-small" type="date" id="datepickerfrom" value="2018-05-05"/>
 					  </div>
 					  <div class="w3-half">
 						<label class="w3-text-yellow w3-medium filterlabel">To</label>
-						<input class="w3-input w3-border w3-small w3-padding-small" type="date" id="datepickerto"/>
+						<input class="w3-input w3-border w3-small w3-padding-small" type="date" id="datepickerto" value="2019-05-05"/>
 					  </div>
 					</div>
 					<div class="w3-row-padding" style="margin-top:8px">
@@ -63,7 +63,7 @@
 							<option value="07">07</option><option value="08">08</option><option value="09">09</option>
 							<option value="10">10</option><option value="11">11</option><option value="12">12</option>
 							<option value="13">13</option><option value="14">14</option><option value="15">15</option>
-							<option value="16">16</option><option value="17">17</option><option value="18">18</option>
+							<option value="16" selected="selected">16</option><option value="17">17</option><option value="18">18</option>
 							<option value="19">19</option><option value="20">20</option><option value="21">21</option>
 							<option value="22">22</option><option value="23">23</option>
 						</select>
@@ -78,7 +78,7 @@
 							<option value="13">13</option><option value="14">14</option><option value="15">15</option>
 							<option value="16">16</option><option value="17">17</option><option value="18">18</option>
 							<option value="19">19</option><option value="20">20</option><option value="21">21</option>
-							<option value="22">22</option><option value="23" selected>23</option>
+							<option value="22" selected="selected">22</option><option value="23" selected>23</option>
 						</select>
 					  </div>
 					  <div class="w3-row-padding">
