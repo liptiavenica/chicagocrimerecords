@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CHICAGO CRIME RECORDS </title>
+	<script src="../assets/js/Chart.bundle.js"></script>
+    <script src="../assets/js/utils.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="../assets/css/w3.css">
+	<link rel="stylesheet" href="../assets/css/font-awesome.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/w3-colors-metro.css">
+</head>
+<body>
+	<header class="w3-panel w3-metro-darken w3-center" style="height:10%; margin: 0px; background-image:url('../assets/image/background.png'); border-bottom:4px solid yellow;">
+		<h1 class="w3-xxlarge w3-text-yellow">EVALUATION REPORT</h1>
+		<div class="w3-padding">
+			<div class="w3-bar w3-border w3-medium">
+				<a href="../index.html" class="w3-bar-item w3-button w3-hover-yellow"><i class="fa fa-home"></i> HOME</span></a>
+			</div>
+		</div>
+	</header>
+	<div class="w3-row" style="padding-bottom: 0px; margin-top: 40px; padding-right: 60px">
+		<!--RADAR CHART-->
+		<div class="w3-container w3-col" style="width: 60%">
+			<canvas id="canvas1"></canvas>
+		</div>
+		<div class = "w3-container w3-col" style="width: 40%">
+			<h1 class="w3-large">ASPECTS POINT TABLE</h1>
+			<table class = "w3-table w3-striped w3-border">
+				<tr>
+					<th></th>
+					<th>Crime Map</th>
+					<th>Crime Growth</th>
+					<th>Heatmap</th>
+				</tr>
+				<tr>
+					<th>Appealing and interesting</th>
+					<td>5.33</td>
+					<td>5.00</td>
+					<td>4.58</td>
+				</tr>
+				<tr>
+					<th>Information clearness</th>
+					<td>5.33</td>
+					<td>5.25</td>
+					<td>4.08</td>
+				</tr>
+				<tr>
+					<th>Insight</th>
+					<td>5.17</td>
+					<td>5.00</td>
+					<td>4.33</td>
+				</tr>
+				<tr>
+					<th>Idioms appropriateness</th>
+					<td>3.33</td>
+					<td>2.67</td>
+					<td>3.67</td>
+				</tr>
+				<tr>
+					<th>Visual encoding</th>
+					<td>5.25</td>
+					<td>5.33</td>
+					<td>4.58</td>
+				</tr>
+				<tr>
+					<th>Interactivity</th>
+					<td>4.92</td>
+					<td>0.00</td>
+					<td>4.83</td>
+				</tr>
+			</table>
+		</div>
+    </div>
+    <script src="../assets/js/eval.js"></script>
+</body>
+</html>
